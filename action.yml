@@ -44,6 +44,7 @@ runs:
       name: Fetch key
     - run: |
         export GUIX_BINARY_FILE_NAME=guix-binary-nightly.x86_64-linux.tar.xz
+        apt-get -y install expect
         sudo --preserve-env=GUIX_BINARY_FILE_NAME -- bash -c 'expect -c "spawn bash guix_installer.sh;sleep 2; expect -re \"Press return to continue...\"; send \"\r\n\""'
       shell: bash
       name: Install GuixOK?
